@@ -1,0 +1,98 @@
+/* Estilo geral */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #000000;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilo do cabeçalho */
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.header h1 {
+  font-size: 48px;
+  color: #fff;
+}
+
+/* Estilo do formulário de login */
+
+.login {
+  background-color: #141414;
+  border-radius: 10px;
+  padding: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  max-width: 400px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 40px;
+}
+
+.login-box h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.form-group input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #e50914;
+  background-color: transparent;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #e50914;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.submit-button:hover {
+  background-color: #e60012;
+}
