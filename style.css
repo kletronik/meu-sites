@@ -49,7 +49,7 @@ form label {
   text-align: left;
 }
 
-form input[type="text"],
+form input[type="email"],
 form input[type="password"] {
   width: 150%;
   padding: 10px;

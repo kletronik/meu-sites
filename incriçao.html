@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registro de Conta</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style3.css">
+  </head>
+  <body>
+    <div class="background">
+    <div class="container">
+        
+      <h1>Registro de Conta</h1>
+      <form>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+        
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required>
+        
+        <button type="button" id="button" class="btn">Registrar</button>
+      
+      </form>
+    </div>
+    </div>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+      import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyAIcsXVFsDcTxukl51ycAmRjQt0CBGYgq8",
+        authDomain: "meu-site-d9e30.firebaseapp.com",
+        projectId: "meu-site-d9e30",
+        storageBucket: "meu-site-d9e30.appspot.com",
+        messagingSenderId: "460128932210",
+        appId: "1:460128932210:web:cc3fec1f2ff00d176b4deb",
+        measurementId: "G-GMNXCSJ44Z"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const loginButton = document.getElementById('button');
+
+loginButton.addEventListener('click', function() {
+  
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("senha").value;
+  
+
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Login com sucesso, redirecione o usuário para a página desejada
+      window.location.href = "login.html";
+      const user = userCredential.user;
+    })
+    .catch((error) => {
+      // Ocorreu um erro durante o login, exiba a mensagem de erro
+      const errorMessage = error.message;
+      console.error(errorMessage);
+      alert('erro');
+    });
+});
+      </script>
+  </body>
+</html>
