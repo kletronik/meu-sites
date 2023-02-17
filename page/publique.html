@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poemas</title>
+    <link rel="stylesheet" type="text/css" href="../estilo/style4.css">
+  </head>
+  <body>
+    <header>
+      <h1>Poemas</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Início</a></li>
+          <li><a href="#enviar-poema">Enviar poema</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <h2>Poemas recentes</h2>
+        <ul id="lista-poemas">
+          <li>
+            <h3>Nome do poema</h3>
+            <p>Autor do poema</p>
+            <p>Categoria do poema</p>
+            <p>Conteúdo do poema</p>
+          </li>
+        </ul>
+      </section>
+      <section id="enviar-poema">
+        <h2>Envie seu poema</h2>
+        <form action="enviar_poema.php" method="post">
+          <label for="titulo">Título do poema:</label>
+          <input type="text" id="titulo" name="titulo" required />
+
+          <label for="autor">Autor do poema:</label>
+          <input type="text" id="autor" name="autor" required />
+
+          <label for="categoria">Categoria do poema:</label>
+          <select id="categoria" name="categoria" required>
+            <option value="">Selecione uma categoria</option>
+            <option value="amor">Amor</option>
+            <option value="tristeza">Tristeza</option>
+            <option value="alegria">Alegria</option>
+            <option value="natureza">Natureza</option>
+            <option value="reflexao">Reflexão</option>
+          </select>
+
+          <label for="conteudo">Conteúdo do poema:</label>
+          <textarea id="conteudo" name="conteudo" rows="10" required></textarea>
+
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
+    </main>
+    <script src="../js/script4.js"></script>
+  </body>
+</html>

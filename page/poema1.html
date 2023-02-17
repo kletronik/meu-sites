@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Página de Poemas</title>
+	<!-- Adicionado link para fonte externa do Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<style>
+		/* Adicionado estilo de fundo gradiente */
+		body {
+			background: linear-gradient(to bottom, #f9f9f9, #e8e8e8);
+			margin: 0;
+			padding: 0;
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		/* Adicionado estilo para cabeçalho da página */
+		header {
+			background-color: #333;
+			color: #fff;
+			text-align: center;
+			padding: 20px;
+			font-size: 36px;
+			font-weight: bold;
+		}
+
+		/* Adicionado estilo para o container dos poemas */
+		#poemas {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			margin: 30px;
+		}
+
+		/* Adicionado estilo para o contêiner de cada poema */
+		.poema {
+			background-color: #fff;
+			border-radius: 5px;
+			box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+			margin: 10px;
+			padding: 20px;
+			flex-basis: calc(33.33% - 20px);
+			display: flex;
+			flex-direction: column;
+		}
+
+		/* Adicionado estilo para o título de cada poema */
+		.titulo {
+			color: #333;
+			font-size: 24px;
+			font-weight: bold;
+			margin-bottom: 10px;
+			text-align: center;
+			text-transform: capitalize;
+		}
+
+		/* Adicionado estilo para o autor de cada poema */
+		.autor {
+			color: #777;
+			font-size: 14px;
+			margin-bottom: 20px;
+			text-align: center;
+		}
+
+		/* Adicionado estilo para o conteúdo de cada poema */
+		.conteudo {
+			color: #333;
+			font-size: 18px;
+			line-height: 1.5;
+			text-align: justify;
+		}
+
+		/* Adicionado media query para ajustar o estilo em dispositivos menores */
+		@media (max-width: 768px) {
+			.poema {
+				flex-basis: 100%;
+			}
+
+			.titulo {
+				font-size: 20px;
+			}
+
+			.autor {
+				font-size: 12px;
+			}
+
+			.conteudo {
+				font-size: 16px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header>Página de Poemas</header>
+	<div id="poemas"></div>
+	<script>
+		const poemas = [
+			{
+				titulo: "Amar é...",
+				autor: "Desconhecido",
+				conteudo: "Amar é sentir na felicidade do outro a própria felicidade. Ou não sentir, se o outro sofre. Só quem ama pode entender o que significa ‘amor'." 
+			},
+			 { título: "O Corvo", 
+			 autor: "Edgar Allan Poe",
+				 conteudo: "Era uma vez uma meia-noite triste, enquanto eu ponderava, fraco e cansado, Sobre muitos volumes estranhos e curiosos de conhecimento esquecido, Enquanto eu balançava a cabeça, quase cochilando, de repente ouvi uma batida, Como se alguém batesse suavemente, batendo na porta do meu quarto. “É algum visitante,” murmurei, “batendo na porta do meu quarto— Só isso e nada mais.”"
+				 },
+				  {
+				 titulo: "Soneto de Fidelidade",
+				  autor: "Vinicius de Moraes",
+				   conteudo: "De tudo, ao meu amor serei atento Antes, e com tal zelo, e sempre, e tanto Que mesmo em face do maior encanto Dele se encanta mais meu pensamento. Quero vivê-lo em cada momento E em seu louvor hei de respeitar meu canto E rir meu riso e derramar meu pranto Ao seu pesar ou seu contentamento." 
+			} ];
+				// Adicionado loop for para criar um elemento de poema para cada objeto no array poemas
+	for (let i = 0; i < poemas.length; i++) {
+		// Criando um elemento de div com a classe poema para cada poema
+		const poemaElem = document.createElement('div');
+		poemaElem.classList.add('poema');
+
+		// Criando elementos para o título, autor e conteúdo do poema
+		const tituloElem = document.createElement('h2');
+		tituloElem.classList.add('titulo');
+		tituloElem.innerText = poemas[i].titulo;
+
+		const autorElem = document.createElement('p');
+		autorElem.classList.add('autor');
+		autorElem.innerText = "Autor: " + poemas[i].autor;
+
+		const conteudoElem = document.createElement('p');
+		conteudoElem.classList.add('conteudo');
+		conteudoElem.innerText = poemas[i].conteudo;
+
+		// Adicionando os elementos de título, autor e conteúdo ao elemento de poema
+		poemaElem.appendChild(tituloElem);
+		poemaElem.appendChild(autorElem);
+		poemaElem.appendChild(conteudoElem);
+
+		// Adicionando o elemento de poema ao contêiner de poemas
+		document.getElementById('poemas').appendChild(poemaElem);
+	}
+</script>
+</script>
+</body>
+ </html>

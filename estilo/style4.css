@@ -1,0 +1,137 @@
+/* Estilos gerais */
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: sans-serif;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2rem;
+  }
+  
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  nav li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  nav li:last-child {
+    margin-right: 0;
+  }
+  
+  nav a {
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  nav a:hover {
+    background-color: white;
+    color: #333;
+  }
+  
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  section {
+    margin-bottom: 40px;
+  }
+  
+  section h2 {
+    margin-top: 0;
+  }
+  
+  section ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  section li {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  section li h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+  }
+  
+  section li p {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  section li p:first-of-type {
+    font-style: italic;
+    color: #888;
+  }
+  
+  section li p:last-of-type {
+    margin-top: 10px;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+  }
+  
+  form input[type="text"],
+  form select,
+  form textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    border-radius: 15px;
+    border: 1px solid #2b0000;
+  }
+  
+  form button {
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #bb0c0c;
+    color: rgb(255, 255, 255);
+  }
+  
+  form button:hover {
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    cursor: pointer;
+  }
+  
+  form button:disabled {
+    background-color: #000000;
+    color: #ffffff;
+    cursor: not-allowed;
+  }
+  
