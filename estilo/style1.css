@@ -1,70 +1,202 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Helvetica', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica', sans-serif;
+}
+@mixin flex-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-bottom-center() {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+$to-mobile: 520px;
+$item-h: 12rem;
+$gutter: $item-h / 10;
+$menu-size: 36rem;
+
+$clr-bg: #21264b;
+$clr-item: #28305a;
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100vh;
+  @include flex-center();
+  
+  background-color: #1c86cf;
+  font-size: 62.5%;
+  font-family: Helvetica, sans-serif;
+  
+  @media screen and (max-width: $to-mobile) {
+    width: 100%;
+    overflow-x: hidden;
+    font-size: 50%;
+  }
+}
+
+.content {
+  position: relative;
+  width: 50vw;
+  min-width: 50rem;
+  max-width: 70rem;
+  max-height: 70rem;
+  min-height: 55rem;
+  height: 90vh;
+  
+  box-shadow: 0 0 4rem rgba(0,0,0,1);
+  background-color: $clr-bg;
+  
+  @media screen and (max-width: $to-mobile) {
+    width: 100%;
+    min-width: 30rem;
+    min-height: 100vh;
+    max-height: 100vh;
   }
   
-  .background {
-    background-image: url("https://static.vecteezy.com/ti/vetor-gratis/p3/9485005-fundo-dia-poesia-gratis-vetor.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
+  &__items--wrap {
     position: relative;
+    width: 100%;
+    height: calc(100% - 25rem);
+    overflow: hidden;
   }
   
-  .background::before {
-    content: "";
+  &__items {
+    overflow-y: auto;
+    height: 100%;
+    width: calc(100% + 17px);
+  }
+  
+  &__menu {
     position: absolute;
-    top: 0;
+    right: 0; bottom: 0;
+
+    width: $menu-size;
+    height: $menu-size;
+    pointer-events: none;
+  }
+}
+
+.header {
+  position: relative;
+  height: 25rem;
+  
+  @include flex-center();
+  flex-direction: column;
+  
+  &__topBar {
+    width: 70%;
+    height: 7.6rem;
+    border-radius: 3.8rem;
+    margin-bottom: $gutter * 2;
+    background-image: linear-gradient(to bottom, #fff 0%, #e5f1fe 100%);
+  }
+  
+  &__botBar {
+    width: 50%;
+    height: 6rem;
+    border-radius: 3rem;
+    background-color: #f34a33;
+  }
+  
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 100%;
     left: 0;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: -1;
+    height: 0.2rem;
+    background-image: linear-gradient(to right, #202747 0%,#28345e 50%,#202747 100%);
   }
-  
-  .container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    background-color: rgba(22, 1, 114, 0.459);
-    border-radius: 10px;
-  }
-  
-  .container h1 {
-    font-size: 4rem;
-    color: #fff;
-    text-align: center;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
-  }
-  
-  .container p {
-    font-size: 1.5rem;
-    color: #fff;
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto 20px;
-  }
-  
-  .btn {
-    display: block;
-    margin: 0 auto;
-    background-color: #000000;
-    color: #ffffff;
-    border: none;
-    border-radius: 50px;
-    padding: 10px 40px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.8s;
 }
-  .btn:hover {
-    background-color: #a70000;
-  }
-  .btn a{
-    color: #fff;
-  }
-  
+
+.item {
+  width: 95%;
+  height: $item-h;
+  margin: $gutter 0 $gutter 0;
+  border-radius: 0 $item-h/2 $item-h/2 0;
+  background-color: $clr-item;
+}
+
+.crc-sm, .svg__link {
+  pointer-events: auto;
+}
+.background {
+  background-image: url("https://static.vecteezy.com/ti/vetor-gratis/p3/9485005-fundo-dia-poesia-gratis-vetor.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+}
+
+.background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: rgba(22, 1, 114, 0.459);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.container h1 {
+  font-size: 4rem;
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+.container p {
+  font-size: 1.5rem;
+  color: #fff;
+  max-width: 600px;
+  margin: 0 auto 20px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.8s;
+}
+
+.btn:hover {
+  background-color: #a70000;
+}
+
+.btn a {
+  color: #fff;
+  text-decoration: none;
+}
