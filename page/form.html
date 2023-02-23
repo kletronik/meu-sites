@@ -31,7 +31,7 @@
       </section>
       <section id="enviar-poema">
         <h2>Envie seu poema</h2>
-        <form id="poema-form" action="enviar-poema.php" method="POST">
+        <form id="poema-form" action="salvar_poema.php" method="POST">
           <label for="titulo">Título do poema:</label>
           <input type="text" id="titulo" name="titulo" required />
 
@@ -52,20 +52,17 @@
           <textarea id="conteudo" name="conteudo" rows="10" required></textarea>
 
           <button type="submit">Enviar</button>
-          <section id="poemas-enviados">
-            <h2>Poemas enviados</h2>
-            <ul id="lista-poemas-enviados"></ul>
-          </section>          
+          
         </form>
       </section>
     </main>
-
-
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js"></script>
-    <script>
-      // inicialize o Firebase
-      var firebaseConfig = {
+     <script>
+        import { initializeApp } from "firebase/app";
+        import { getDatabase } from "firebase/database";
+    var firebaseConfig = {
+        // insira suas credenciais do Firebase aqui
         apiKey: "AIzaSyAIcsXVFsDcTxukl51ycAmRjQt0CBGYgq8",
         authDomain: "meu-site-d9e30.firebaseapp.com",
         databaseURL: "https://meu-site-d9e30-default-rtdb.firebaseio.com/",
@@ -74,54 +71,30 @@
         messagingSenderId: "460128932210",
         appId: "1:460128932210:web:cc3fec1f2ff00d176b4deb"
       };
+      
       firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+      const form = document.getElementById("poema-form");
 
-const db = firebase.firestore();
-
-const form = document.getElementById('poema-form');
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
   const poema = {
     titulo: form.titulo.value,
     autor: form.autor.value,
     categoria: form.categoria.value,
     conteudo: form.conteudo.value,
   };
-  db.collection('poemas').add(poema)
+  db.collection("poemas")
+    .add(poema)
     .then(() => {
-      console.log('Poema enviado com sucesso!');
+      console.log("Poema enviado com sucesso!");
       form.reset();
     })
-        }).catch(function(error) {
-          console.error(error);
-          db.collection('poemas').add(poema)
-  .then((docRef) => {
-    console.log('Poema adicionado com ID:', );
-    form.reset();
-  })
-  .catch((error) => {
-    console.error('Erro ao adicionar o poema:', error);
-  });
-  function mostrarPoemasEnviados() {
-  const listaPoemasEnviados = document.getElementById('lista-poemas-enviados');
-  listaPoemasEnviados.innerHTML = 'poema1.html';
-
-  db.collection('poemas').get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-      const poema = doc.data();
-      const li = document.createElement('li');
-      li.innerHTML = `
-        <h3>${poema.titulo}</h3>
-        <p>Autor: ${poema.autor}</p>
-        <p>Categoria: ${poema.categoria}</p>
-        <p>${poema.conteudo}</p>
-      `;
-      listaPoemasEnviados.appendChild(li);
+    .catch((error) => {
+      console.error("Erro ao enviar poema:", error);
     });
-  });
-}
-        });
+});
     </script>
   </body>
 </html>
+
