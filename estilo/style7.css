@@ -1,0 +1,60 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #333;
+  background: linear-gradient(to bottom, #2c3e50, #3498db);
+}
+
+header, main, footer {
+  padding: 20px;
+}
+
+header {
+  background-color: #eee;
+}
+
+.poema {
+  text-align: center;
+  margin: 50px auto;
+  max-width: 800px;
+  color: #fff;
+}
+
+.poema h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.poema p {
+  margin: 10px 0;
+  line-height: 1.8;
+}
+
+.botoes {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+button {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #5c0000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0058b1;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+button:active {
+  transform: rotate(360deg);
+  transition: transform 0.5s ease;
+}

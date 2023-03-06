@@ -14,12 +14,23 @@
         <input type="email" id="email" name="email" required>
         <label for="password">Senha:</label>
         <input type="password" id="password" name="password" required>
-        <button type="button" id="loginButton">Entrar</button>
+        <button type="button" id="Button">Entrar</button>
       </form>      
-      
       <p>Não tem uma conta? <a href="incriçao.html">Inscreva-se</a></p>
     </div>
   </div>
+
+ <!-- Página de carregamento -->
+ <div class="loader">
+  <div class="loader-inner">
+    <img src="../image/carre.gif" alt="Carregando...">
+  </div>
+</div>
+
+  <script src="../js/script5.js"></script>
+</body>
+
+
  
   <!-- Importe o SDK do Firebase -->
   <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
@@ -42,15 +53,14 @@
       storageBucket: "meu-site-d9e30.appspot.com",
       messagingSenderId: "460128932210",
       appId: "1:460128932210:web:cc3fec1f2ff00d176b4deb",
-      measurementId: "G-GMNXCSJ44Z"
     };
   
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
-    const loginForm = document.querySelector('#login-form');
-    const loginButton = document.getElementById('loginButton');
+    const loginForm = document.querySelector('login-form');
+    const loginButton = document.getElementById('Button');
 
     loginButton.addEventListener('click', function() {
       
@@ -61,7 +71,7 @@
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           // Login com sucesso, redirecione o usuário para a página desejada
-          window.location.href = "dashboard.html";
+          window.location.href = "principal.html";
           const user = userCredential.user;
         })
         .catch((error) => {
