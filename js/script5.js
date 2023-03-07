@@ -6,5 +6,5 @@ document.getElementById("Button").addEventListener("click", function() {
   loader.style.display = "block";
   setTimeout(function() {
     window.location.href = "principal.html"; // redireciona para outra página após 2 segundos
-  }, 1000000);
+  }, 200);
 });

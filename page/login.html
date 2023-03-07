@@ -8,8 +8,8 @@
 <body>
   <div class="background">
     <div class="container">
+      <img src="../image/14.png" alt="Logo">
       <form id="login-form">
-        <h1>Conectar</h1>
         <label for="email">E-mail:</label>
         <input type="email" id="email" name="email" required>
         <label for="password">Senha:</label>
@@ -19,19 +19,6 @@
       <p>Não tem uma conta? <a href="incriçao.html">Inscreva-se</a></p>
     </div>
   </div>
-
- <!-- Página de carregamento -->
- <div class="loader">
-  <div class="loader-inner">
-    <img src="../image/carre.gif" alt="Carregando...">
-  </div>
-</div>
-
-  <script src="../js/script5.js"></script>
-</body>
-
-
- 
   <!-- Importe o SDK do Firebase -->
   <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
@@ -71,7 +58,7 @@
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           // Login com sucesso, redirecione o usuário para a página desejada
-          window.location.href = "principal.html";
+          window.location.href = "carregamento.html";
           const user = userCredential.user;
         })
         .catch((error) => {

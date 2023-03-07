@@ -1,32 +1,19 @@
-body {
-    background-color: #fafafa;
-  }
-  
-  #loader-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-  }
-  
-  #loader {
-    border: 8px solid #ddd;
-    border-top: 8px solid #007bff;
-    border-radius: 50%;
-    width: 64px;
-    height: 64px;
-    animation: spin 1s linear infinite;
-    margin-bottom: 16px;
-  }
-  
-  #loader-text {
-    font-size: 24px;
-    color: #666;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
+/* Estilos para a página de carregamento */
+.loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+.loader img {
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.loader p {
+  font-size: 28px;
+  font-weight: bold;
+}

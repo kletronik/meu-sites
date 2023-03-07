@@ -1,22 +1,26 @@
-const aumentarFonte = document.getElementById("aumentarFonte");
-const diminuirFonte = document.getElementById("diminuirFonte");
-const mudarCor = document.getElementById("mudarCor");
-const poema = document.querySelector(".poema");
+// Seleciona os elementos da página
+const btnAumentarFonte = document.getElementById('aumentarFonte');
+const btnDiminuirFonte = document.getElementById('diminuirFonte');
+const poema = document.querySelector('.poema');
 
-aumentarFonte.addEventListener("click", function() {
-  let tamanhoAtual = window.getComputedStyle(poema).getPropertyValue("font-size");
-  let novoTamanho = parseInt(tamanhoAtual) + 2 + "px";
-  poema.style.fontSize = novoTamanho;
-});
+// Define as funções que serão chamadas pelos botões
+function aumentarFonte() {
+  const fontSizeAtual = window.getComputedStyle(poema).getPropertyValue('font-size');
+  const novaFontSize = parseInt(fontSizeAtual) + 2;
+  poema.style.fontSize = `${novaFontSize}px`;
+}
 
-diminuirFonte.addEventListener("click", function() {
-  let tamanhoAtual = window.getComputedStyle(poema).getPropertyValue("font-size");
-  let novoTamanho = parseInt(tamanhoAtual) - 2 + "px";
-  poema.style.fontSize = novoTamanho;
-});
+function diminuirFonte() {
+  const fontSizeAtual = window.getComputedStyle(poema).getPropertyValue('font-size');
+  const novaFontSize = parseInt(fontSizeAtual) - 2;
+  poema.style.fontSize = `${novaFontSize}px`;
+}
 
-mudarCor.addEventListener("click", function() {
-  let corAtual = window.getComputedStyle(poema).getPropertyValue("color");
-  let novaCor = corAtual === "rgb(51, 51, 51)" ? "rgb(255, 0, 0)" : "rgb(51, 51, 51)";
-  poema.style.color = novaCor;
-});
+function mudarCor() {
+  const corAtual = window.getComputedStyle(poema).getPropertyValue('color');
+}
+
+// Adiciona os listeners aos botões
+btnAumentarFonte.addEventListener('click', aumentarFonte);
+btnDiminuirFonte.addEventListener('click', diminuirFonte);
+
