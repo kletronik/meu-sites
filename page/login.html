@@ -6,18 +6,28 @@
   <link rel="stylesheet" type="text/css" href="../estilo/style.css">
 </head>
 <body>
-  <div class="background">
     <div class="container">
+      <main>
       <img src="../image/14.png" alt="Logo">
       <form id="login-form">
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" required>
-        <label for="password">Senha:</label>
-        <input type="password" id="password" name="password" required>
-        <button type="button" id="Button">Entrar</button>
+        <div class="mb-3">
+          <label for="email" class="form-label">E-mail</label>
+          <input type="email" class="input-form" required id="email" placeholder="Digite seu E-mail">
+          <span class="required-msg">Sua senha precisa conter no minimo 5 caracteres</span>
+      </div>
+
+      <div class="mb-3">
+          <label for="password" class="form-label">Senha</label>
+          <input type="password" class="input-form" required id="password"
+              placeholder="Digite sua senha">
+          <span class="required-msg">Sua senha precisa conter no minimo 5 caracteres</span>
+          <button id="Button" class="button-login">Entrar</button>
+          <div class="login-container">
+            <span>Não tem uma conta? </span><a href="../page/incriçao.html" class="login"> Faça seu Cadastro!</a>
+      </div>
       </form>      
-      <p>Não tem uma conta? <a href="incriçao.html">Inscreva-se</a></p>
     </div>
+  </main>
   </div>
   <!-- Importe o SDK do Firebase -->
   <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
@@ -40,6 +50,7 @@
       storageBucket: "meu-site-d9e30.appspot.com",
       messagingSenderId: "460128932210",
       appId: "1:460128932210:web:cc3fec1f2ff00d176b4deb",
+      measurementId: "G-GMNXCSJ44Z"
     };
   
     // Initialize Firebase
@@ -58,7 +69,7 @@
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           // Login com sucesso, redirecione o usuário para a página desejada
-          window.location.href = "carregamento.html";
+          window.location.href ="../page/carregamento.html";
           const user = userCredential.user;
         })
         .catch((error) => {

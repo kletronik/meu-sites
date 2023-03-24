@@ -1,89 +1,100 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Open Sans', sans-serif;
+:root{
+  --color-base: #06005c;
+  --color-dark: #190542;
+  --color-cyan: #00fffd;
+  --hover-color: #ff7b00;
+  --color-primario: #010041;
+}
+body{
+  overflow: hidden;
+  color: #ffffff;
+  margin-top: 0px;
+  background-image: url("../image/12.jpg");
   background-size: cover;
   background-position: center;
-  color: rgb(250, 250, 250);
-}
-
-.background {
-  background-image: url("https://static.vecteezy.com/ti/vetor-gratis/p3/9485005-fundo-dia-poesia-gratis-vetor.jpg");
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  position: relative;
-}
-
-.background::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: -1;
-}
 
+}
 .container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 50px 125px;
-  background-color: #00012bcb;
-  border-radius: 18px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.836);
-}
-
-form {
+  width: 100%;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-form label {
-  margin-top: 38px;
-  font-size: 25px;
-  font-weight: bold;
-  text-align: left;
+main{
+  
+  padding: 30px 50px;
+  background-color: #00063aa1;
+  border-radius: 28px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.836);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 35px;
 }
-
-form input[type="email"],
-form input[type="password"] {
-  width: 150%;
-  padding: 10px;
-  border: none;
-  border-radius: 15px;
-  margin-top: 5px;
-  margin-bottom: 25px;
-  background-color: #ffffff;
+.logo{
+  width: 310px;
 }
-
-form button {
-  width: 80%;
-  background-color: #6d0101;
-  color: #ffffff;
+form{
+  display: flex;
+  flex-direction: column;
+}
+.button-login{
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  color: white;
   border: none;
-  border-radius: 25px;
-  padding: 10px;
-  font-size: 16px;
+  height: 45px;
+  border-radius: 35px;
+  width: 95%;
+  background-color: var(--color-base);
+  font-weight: 500;
+  font-size: 21px;
+  margin-top: 25px;
+}
+.button-login:hover{
+  transform: scale(1.01);
+  transition: .4s;
+  background-color: var(--hover-color);
   cursor: pointer;
-  margin-bottom: 10px;
+}
+.login-container{
+  padding: 25px 0;
+  align-self: center;
+  
+}
+.login:hover{
+  transition: .4Ss;
+  color: var(--hover-color);
 }
 
-form button:hover {
-  background-color: #00000052;
-  color: rgb(255, 255, 255);
+.input-form{
+  width: 100%;
+  background-color: white;
+  border: 1px solid lightgray;
+  height: 35px;
+  border-radius: 10px;
+  padding: 0 15px;
+  transition: .05s;
 }
-
-form p {
-  font-size: 14px;
+.input-form:focus{
+  outline: 2px solid var(--color-base);
 }
-
-form a {
-  color: #4CAF50;
-  text-decoration: none;
+.mb-3{
+  display: flex;
+  flex-direction: column;
 }
-
+.required-msg{
+  visibility: hidden;
+  color: red;
+}
+@media (max-width:475px) {
+  .container{
+      transform: scale(0.8);
+  }
+}

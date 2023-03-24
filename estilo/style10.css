@@ -5,22 +5,24 @@
   }
   
   body{
-    background-color: #700000;
+    background: linear-gradient(
+      #005169, #000caf, #566900
+    );
     min-height: 100vh;
     width: 100%;
     filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25));
   }
   header {
-    background-color: #000157;
+    background: #0003a8;
     color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: -2px;
   }
-  
   .logo img {
     height: 100%;
+    margin: 5px 25px;
   }
   
   nav ul {
@@ -41,8 +43,11 @@
     transition: color 0.3s ease-in-out;
     margin: 28px 28px 30px 30px;
     transition: background-color  0.3s ease-in-out;
-
+    
   }
+  nav img{
+  height: 50px;
+}
   .container {
     display: flex;
     flex-wrap: wrap;
@@ -51,7 +56,7 @@
   
   .square {
     width: 45%;
-    height: 835px;
+    height: 875px;
     background-color: #00000083;
     border: 2px solid rgba(0, 0, 0, 0.685);
     margin-bottom: 25px;
@@ -86,7 +91,9 @@
   
   }
   .btn1 {
-    padding: 10px 8px;
+    display: flex;
+    align-items: center;
+    padding: 6px 25px 4px;
     background-color: #000000;
     color: #ffffff;
     text-transform: uppercase;
