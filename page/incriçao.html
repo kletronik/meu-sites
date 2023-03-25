@@ -15,44 +15,31 @@
 <body>
     
     <div class="container">
-        <form id="login-form">
         <main>
-            <img title="poema-book" class="logo" src="../image/14.png" alt="Logo Neon Flix">
-                <div class="mb-3">
-                    <label for="username" class="form-label">Nome</label>
-                    <input type="username" class="input-form required" id="username" aria-describedby="emailHelp"
-                        placeholder="Digite seu Nome">
-                    <span class="required-msg">Sua senha precisa conter no minimo 5 caracteres</span>
-                </div>
-
+            <form>
+                <img src="../image/14.png" alt="Logo">
                 <div class="mb-3">
                     <label for="email" class="form-label">E-mail</label>
-                    <input type="email" class="input-form" required id="email" placeholder="Digite seu E-mail">
-                    <span class="required-msg">Sua senha precisa conter no minimo 5 caracteres</span>
+                    <input type="email" class="input-form"  id="emailUser" placeholder="Digite seu E-mail">
                 </div>
-
                 <div class="mb-3">
-                    <label for="senha" class="form-label">Senha</label>
-                    <input type="password" class="input-form" required id="password"
-                        placeholder="Digite sua senha">
-                    <span class="required-msg">Sua senha precisa conter no minimo 5 caracteres</span>
+                    <label for="password" class="form-label">Senha</label>
+                    <input type="password" class="input-form" id="passwordUser" placeholder="Digite sua senha">
+                   
                 </div>
-                <button id="btn" class="button-login">Criar conta</button>
+                <button id="btnCadastro" class="button-login">Criar conta</button>
                 <div class="login-container">
                     <span>Já tem conta? </span><a href="../page/login.html" class="login"> Faça seu Login!</a>
                 </div>
             </form>
         </main>
-    </div>
+        </div>
   <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
     // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+   
     const firebaseConfig = {
       apiKey: "AIzaSyAIcsXVFsDcTxukl51ycAmRjQt0CBGYgq8",
       authDomain: "meu-site-d9e30.firebaseapp.com",
@@ -64,29 +51,28 @@
       measurementId: "G-GMNXCSJ44Z"
     };
   
-    // Initialize Firebase
+
     const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
+        const auth = getAuth(app);
 
-    loginButton.addEventListener('click', function() {
-  
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("senha").value;
-  
+        document.getElementById("btnCadastro").addEventListener("click", function(){
 
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Login com sucesso, redirecione o usuário para a página desejada
-      window.location.href = "../page/carregamento.html";
-      const user = userCredential.user;
-    })
-    .catch((error) => {
-      // Ocorreu um erro durante o login, exiba a mensagem de erro
-      const errorMessage = error.message;
-      console.error(errorMessage);
-      alert('erro');
-    });
-});
-      </script>
-  </body>
+            const email = document.getElementById("emailUser").value;
+            const password = document.getElementById("passwordUser").value;
+
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in
+                    const user = userCredential.user;
+                    
+                    alert("Conta criada com Sucesso!");
+                    //window.location.href = "../page/login.html";
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                });
+        })
+    </script>
+</body>
 </html>

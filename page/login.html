@@ -9,18 +9,18 @@
     <div class="container">
       <main>
       <img src="../image/14.png" alt="Logo">
-      <form id="login-form">
+      <form>
         <div class="mb-3">
           <label for="email" class="form-label">E-mail</label>
           <input type="email" class="input-form" required id="email" placeholder="Digite seu E-mail">
-          <span class="required-msg">Sua senha precisa conter no minimo 5 caracteres</span>
+    
       </div>
 
       <div class="mb-3">
           <label for="password" class="form-label">Senha</label>
           <input type="password" class="input-form" required id="password"
               placeholder="Digite sua senha">
-          <span class="required-msg">Sua senha precisa conter no minimo 5 caracteres</span>
+          
           <button id="Button" class="button-login">Entrar</button>
           <div class="login-container">
             <span>Não tem uma conta? </span><a href="../page/incriçao.html" class="login"> Faça seu Cadastro!</a>
@@ -29,10 +29,6 @@
     </div>
   </main>
   </div>
-  <!-- Importe o SDK do Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
-
   <!-- Inicialize o Firebase -->
   <script type="module">
     // Import the functions you need from the SDKs you need
@@ -69,8 +65,8 @@
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           // Login com sucesso, redirecione o usuário para a página desejada
-          window.location.href ="../page/carregamento.html";
           const user = userCredential.user;
+          window.location.href ="../page/carregamento.html";
         })
         .catch((error) => {
           // Ocorreu um erro durante o login, exiba a mensagem de erro
