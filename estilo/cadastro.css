@@ -1,11 +1,12 @@
 :root{
-    --color-base: #7000bf;
+    --color-base: #06005c;
     --color-dark: #190542;
     --color-cyan: #00fffd;
-    --hover-color: #ff7b00;
+    --hover-color: #9e0000;
     --color-primario: #010041;
-}
-body{
+    --color-secundario: #7c0000;  
+  }
+  body{
     overflow: hidden;
     color: #ffffff;
     margin-top: 0px;
@@ -13,86 +14,91 @@ body{
     background-size: cover;
     background-position: center;
     width: 100%;
- 
-}
-.container {
+  
+  }
+  .container {
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-main{
+  }
+  
+  main{
     
-    padding: 39px 88px;
-    background-color: #00063aa1;
-    border-radius: 28px;
+    padding: 30px 50px;
+    background-color: #1b007cd3;
+    border-radius: 35px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.836);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0 35px;
-}
-.logo{
-    width: 382px;
-}
-form{
+  }
+  .logo{
+    width: 310px;
+  }
+  form{
     display: flex;
     flex-direction: column;
-    
-}
-.button-login{
+  }
+  .form-label{
+    color: #ffffff;
+    font-size: 22px;        
+    font-weight: arial;  
+    margin-bottom: 10px;    
+    text-align: center;
+  }
+  .button-login{
     display: flex;
     align-self: center;
     align-items: center;
     justify-content: center;
     color: white;
     border: none;
-    height: 45px;
+    height: 49px;
     border-radius: 35px;
-    width: 95%;
+    width: 100%;
     background-color: var(--color-base);
     font-weight: 500;
     font-size: 21px;
     margin-top: 25px;
-}
-.button-login:hover{
+  }
+  .button-login:hover{
     transform: scale(1.01);
     transition: .4s;
     background-color: var(--hover-color);
     cursor: pointer;
-}
-.login-container{
+  }
+  .login-container{
     padding: 25px 0;
     align-self: center;
     
-}
-.login:hover{
+  }
+  .login:hover{
     transition: .4Ss;
     color: var(--hover-color);
-}
-
-.input-form{
-    width: 110%;
+  }
+  
+  .input-form{
+    width: 100%;
     background-color: white;
     border: 1px solid lightgray;
-    height: 45px;
+    height: 35px;
     border-radius: 10px;
     padding: 0 15px;
     transition: .05s;
-}
-.input-form:focus{
-    outline: 2px solid var(--color-base);
-}
-.mb-3{
+  }
+  .input-form:focus{
+    outline: 5px solid var(--color-secundario);
+  }
+  .mb-3{
     display: flex;
     flex-direction: column;
-
-}
-@media (max-width:475px) {
+  }
+  @media (max-width:475px) {
     .container{
         transform: scale(0.8);
     }
-}
+  }

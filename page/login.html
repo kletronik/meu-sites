@@ -1,80 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-  <link rel="stylesheet" type="text/css" href="../estilo/style.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
 </head>
 <body>
     <div class="container">
-      <main>
-      <img src="../image/14.png" alt="Logo">
-      <form>
-        <div class="mb-3">
-          <label for="email" class="form-label">E-mail</label>
-          <input type="email" class="input-form" required id="email" placeholder="Digite seu E-mail">
-    
-      </div>
+        <main>
+            <img src="../image/14.png" alt="Logo">
+            <!-- Adicione este código no corpo do seu HTML -->
+<form>
+        <div>
+            <!--Texto que irar aparece no formulario  -->
 
-      <div class="mb-3">
-          <label for="password" class="form-label">Senha</label>
-          <input type="password" class="input-form" required id="password"
-              placeholder="Digite sua senha">
-          
-          <button id="Button" class="button-login">Entrar</button>
-          <div class="login-container">
-            <span>Não tem uma conta? </span><a href="../page/incriçao.html" class="login"> Faça seu Cadastro!</a>
-      </div>
-      </form>      
+            <!--entranda de texto o id serve para identifica o elemento  -->
+            <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="email" class="input-form" id="email" placeholder="Digita seu email">
+
+            <!--entranda de texto o id serve para identifica o elemento  -->
+            <div class="mb-3">
+                <label for="password" class="form-label">senha</label>
+            <input type="password" class="input-form" id="senha" placeholder="Digita sua senha">
+                
+                <div class="d-grid gap-2">
+                    <button onclick="entrar()" class="button-login"type="button">Entrar</button>
+                    <div class="login-container">
+                        <span>Ainda nao tem conta? </span><a href="../page/incriçao.html" class="login">Faça seu cadastro!</a>
+                          </div>
+                      </form>
+            </div>
+        </div>
     </div>
-  </main>
-  </div>
-  <!-- Inicialize o Firebase -->
-  <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
-    import { getAuth, signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyAIcsXVFsDcTxukl51ycAmRjQt0CBGYgq8",
-      authDomain: "meu-site-d9e30.firebaseapp.com",
-      projectId: "meu-site-d9e30",
-      storageBucket: "meu-site-d9e30.appspot.com",
-      messagingSenderId: "460128932210",
-      appId: "1:460128932210:web:cc3fec1f2ff00d176b4deb",
-      measurementId: "G-GMNXCSJ44Z"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-
-    const loginForm = document.querySelector('login-form');
-    const loginButton = document.getElementById('Button');
-
-    loginButton.addEventListener('click', function() {
-      
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-      
-
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Login com sucesso, redirecione o usuário para a página desejada
-          const user = userCredential.user;
-          window.location.href ="../page/carregamento.html";
-        })
-        .catch((error) => {
-          // Ocorreu um erro durante o login, exiba a mensagem de erro
-          const errorMessage = error.message;
-          console.error(errorMessage);
-  
-        });
-    });
-  </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../estilo/style.css" />
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+    <script src="../js/firebase1.js"></script>
 </body>
 </html>
